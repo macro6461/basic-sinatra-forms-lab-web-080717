@@ -1,9 +1,12 @@
 ENV["SINATRA_ENV"] = "test"
 require_relative '../config/environment'
+require 'rspec'
 require 'rack/test'
-require 'capybara/poltergeist'
+require 'capybara/rspec'
+require 'capybara/dsl'
 
-Capybara.javascript_driver = :poltergeist
+
+Capybara.javascript_driver = :dsl
 
 RSpec.configure do |config|
   config.include Capybara::DSL
